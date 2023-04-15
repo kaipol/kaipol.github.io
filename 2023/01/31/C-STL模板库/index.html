@@ -18,12 +18,12 @@
   <meta name="author" content="Kaipol">
   <meta name="keywords" content="">
   
-    <meta name="description" content="迭代器（于&lt;iterator&gt;头文件中）种类：   1):正向迭代器，定义如下:    容器类名::iterator  迭代器名;      2):常量迭代器，定义如下:  容器类名::const_iterator  迭代器名;">
+    <meta name="description" content="迭代器（于&lt;iterator&gt;头文件中） 种类： 1):正向迭代器，定义如下: &gt;容器类名::iterator  迭代器名; 2):常量迭代器，定义如下: &gt;容器类名::const_iterator  迭代器名;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++ STL模板库">
 <meta property="og:url" content="https://kaipol.github.io/2023/01/31/C-STL%E6%A8%A1%E6%9D%BF%E5%BA%93/index.html">
 <meta property="og:site_name" content="Kaipol的博客">
-<meta property="og:description" content="迭代器（于&lt;iterator&gt;头文件中）种类：   1):正向迭代器，定义如下:    容器类名::iterator  迭代器名;      2):常量迭代器，定义如下:  容器类名::const_iterator  迭代器名;">
+<meta property="og:description" content="迭代器（于&lt;iterator&gt;头文件中） 种类： 1):正向迭代器，定义如下: &gt;容器类名::iterator  迭代器名; 2):常量迭代器，定义如下: &gt;容器类名::const_iterator  迭代器名;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-31T15:52:58.000Z">
 <meta property="article:modified_time" content="2023-02-01T04:02:15.132Z">
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          101 字
+          109 字
         
       </span>
     
@@ -280,14 +280,12 @@
             
               <div class="markdown-body">
                 
-                <h1 id="迭代器（于-lt-iterator-gt-头文件中）"><a href="#迭代器（于-lt-iterator-gt-头文件中）" class="headerlink" title="迭代器（于&lt;iterator&gt;头文件中）"></a>迭代器（于<code>&lt;iterator&gt;</code>头文件中）</h1><h2 id="种类："><a href="#种类：" class="headerlink" title="种类："></a>种类：</h2><p>   1):正向迭代器，定义如下:  </p>
-<blockquote>
-<p><code>容器类名::iterator  迭代器名;</code> </p>
-</blockquote>
-<p>   2):常量迭代器，定义如下:</p>
-<blockquote>
-<p><code>容器类名::const_iterator  迭代器名;</code></p>
-</blockquote>
+                <h1 id="迭代器于iterator头文件中">迭代器（于<code>&lt;iterator&gt;</code>头文件中）</h1>
+<h2 id="种类">种类：</h2>
+<p>1):正向迭代器，定义如下:<br>
+&gt;<code>容器类名::iterator  迭代器名;</code></p>
+<p>2):常量迭代器，定义如下:
+&gt;<code>容器类名::const_iterator  迭代器名;</code></p>
 
                 
               </div>
@@ -425,6 +423,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -619,6 +623,49 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
   <script  src="/js/local-search.js" ></script>
 
 
@@ -635,4 +682,5 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+</body>
+</html>
