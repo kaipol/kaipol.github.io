@@ -18,12 +18,12 @@
   <meta name="author" content="Kaipol">
   <meta name="keywords" content="">
   
-    <meta name="description" content="微分学  拉格朗日中值：在(a,b)的区间内，定义了\(f(x)\)，则有\(f(x_1)-f(x_2)&#x3D;f&#39;(\xi)(x_1-x_2),\xi\in(x_1,x_2)\) 若\(f&#39;&#39;_{xy}(x,y)与f&#39;&#39;_{yx}(x,y)在(x,y)处皆连续，则f&#39;&#39;_{xy}(x,y)&#x3D;f&#39;&#39;_{yx}(x,y)在(x,">
+    <meta name="description" content="微分学  拉格朗日中值：在(a,b)的区间内，定义了$f(x)$，则有$f(x_1)-f(x_2)&#x3D;f’(\xi)(x_1-x_2),\xi\in(x_1,x_2)$ 若$f’‘{xy}(x,y)与f’&#39;{yx}(x,y)在(x,y)处皆连续，则f’&#39;{xy}(x,y)&#x3D;f’&#39;{yx}(x,y)在(x,y)，与求导次序无关$ 全微分(用来代替全增量)：有函数$z&#x3D;f(x,y)$，点P(x,y)，若">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微积分期中总结">
 <meta property="og:url" content="https://kaipol.github.io/2023/04/14/%E5%BE%AE%E7%A7%AF%E5%88%86%E6%9C%9F%E4%B8%AD/index.html">
 <meta property="og:site_name" content="Kaipol的博客">
-<meta property="og:description" content="微分学  拉格朗日中值：在(a,b)的区间内，定义了\(f(x)\)，则有\(f(x_1)-f(x_2)&#x3D;f&#39;(\xi)(x_1-x_2),\xi\in(x_1,x_2)\) 若\(f&#39;&#39;_{xy}(x,y)与f&#39;&#39;_{yx}(x,y)在(x,y)处皆连续，则f&#39;&#39;_{xy}(x,y)&#x3D;f&#39;&#39;_{yx}(x,y)在(x,">
+<meta property="og:description" content="微分学  拉格朗日中值：在(a,b)的区间内，定义了$f(x)$，则有$f(x_1)-f(x_2)&#x3D;f’(\xi)(x_1-x_2),\xi\in(x_1,x_2)$ 若$f’‘{xy}(x,y)与f’&#39;{yx}(x,y)在(x,y)处皆连续，则f’&#39;{xy}(x,y)&#x3D;f’&#39;{yx}(x,y)在(x,y)，与求导次序无关$ 全微分(用来代替全增量)：有函数$z&#x3D;f(x,y)$，点P(x,y)，若">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://kaipol.github.io/img/10.png">
 <meta property="article:published_time" content="2023-04-14T15:38:18.000Z">
@@ -46,6 +46,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -228,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.1k 字
+          3.6k 字
         
       </span>
     
@@ -239,7 +241,7 @@
         
         
         
-          35 分钟
+          30 分钟
         
       </span>
     
@@ -282,89 +284,57 @@
             
               <div class="markdown-body">
                 
-                <h1 id="微分学">微分学</h1>
-<ol type="1">
-<li>拉格朗日中值：在(a,b)的区间内，定义了<span class="math inline">\(f(x)\)</span>，则有<span class="math inline">\(f(x_1)-f(x_2)=f&#39;(\xi)(x_1-x_2),\xi\in(x_1,x_2)\)</span></li>
-<li>若<span class="math inline">\(f&#39;&#39;_{xy}(x,y)与f&#39;&#39;_{yx}(x,y)在(x,y)处皆连续，则f&#39;&#39;_{xy}(x,y)=f&#39;&#39;_{yx}(x,y)在(x,y)，与求导次序无关\)</span></li>
-<li>全微分(用来代替全增量)：有函数<span class="math inline">\(z=f(x,y)\)</span>，点P(x,y)，若<span class="math inline">\(\Delta z=f(x+\Delta x,y+\Delta
-y)\)</span>可表示为<span class="math inline">\(\Delta z=A\Delta
-x+B\Delta y+o(\rho)\)</span>，其中<span class="math inline">\(A=\frac{\partial z}{\partial x},B=\frac{\partial
-z}{\partial y},\rho=\sqrt{(\Delta x)^2+(\Delta y)^2}\)</span>,则<span class="math inline">\(f(x,y)\)</span>在<span class="math inline">\((x,y)\)</span>处可微<span class="math inline">\(\;\)</span>,其中全微分为其线性部分<span class="math inline">\(dz=A\Delta x+B\Delta y\)</span></li>
-<li>可微则<span class="math inline">\(z=f(x,y)\)</span>可偏导,且偏导在(x,y)处连续,同时称为连续可微
+                <h1>微分学</h1>
+<ol>
+<li>拉格朗日中值：在(a,b)的区间内，定义了$f(x)$，则有$f(x_1)-f(x_2)=f’(\xi)(x_1-x_2),\xi\in(x_1,x_2)$</li>
+<li>若$f’‘<em>{xy}(x,y)与f’'</em>{yx}(x,y)在(x,y)处皆连续，则f’'<em>{xy}(x,y)=f’'</em>{yx}(x,y)在(x,y)，与求导次序无关$</li>
+<li>全微分(用来代替全增量)：有函数$z=f(x,y)$，点P(x,y)，若$\Delta z=f(x+\Delta x,y+\Delta y)$可表示为$\Delta z=A\Delta x+B\Delta y+o(\rho)$，其中$A=\frac{\partial z}{\partial x},B=\frac{\partial z}{\partial y},\rho=\sqrt{(\Delta x)^2+(\Delta y)^2}$,则$f(x,y)$在$(x,y)$处可微$;$,其中全微分为其线性部分$dz=A\Delta x+B\Delta y$</li>
+<li>可微则$z=f(x,y)$可偏导,且偏导在(x,y)处连续,同时称为连续可微<br>
 例子:<img src="https://img2023.cnblogs.com/blog/3125312/202304/3125312-20230415111350391-1777238050.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202304/3125312-20230415111358851-1283366244.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>隐函数的偏导数:
 <ul>
-<li>对<span class="math inline">\(P_0(x_0,y_0)\)</span>,设<span class="math inline">\(F(P_0)=0\)</span>,则存在唯一的<span class="math inline">\(y=f(x)\)</span>,使得<span class="math inline">\(F(x,f(x))=0\)</span>,<span class="math inline">\(f\)</span>连续可微,<span class="math inline">\(f(x_0)=y_0\)</span>且<span class="math inline">\(f&#39;(x)=-\frac{F&#39;_x(x,y)}{F&#39;_y(x,y)}\)</span></li>
-<li>同上,对<span class="math inline">\(P_0(x_0,y_0,z_0)\)</span>,设<span class="math inline">\(F(P_0)=0\)</span>,则存在唯一的<span class="math inline">\(z=f(x,y)\)</span>,使得<span class="math inline">\(F(x,y,f(x,y))=0\)</span>,<span class="math inline">\(f\)</span>连续可微,<span class="math inline">\(f(x_0,y_0)=z_0\)</span>且<span class="math inline">\(\frac{\partial f}{\partial
-x}=-\frac{F&#39;_x(x,y,z)}{F&#39;_z(x,y,z)}\)</span>,<span class="math inline">\(\frac{\partial f}{\partial
-y}=-\frac{F&#39;_y(x,y,z)}{F&#39;_z(x,y,z)}\)</span></li>
+<li>对$P_0(x_0,y_0)$,设$F(P_0)=0$,则存在唯一的$y=f(x)$,使得$F(x,f(x))=0$,$f$连续可微,$f(x_0)=y_0$且$f’(x)=-\frac{F’_x(x,y)}{F’_y(x,y)}$</li>
+<li>同上,对$P_0(x_0,y_0,z_0)$,设$F(P_0)=0$,则存在唯一的$z=f(x,y)$,使得$F(x,y,f(x,y))=0$,$f$连续可微,$f(x_0,y_0)=z_0$且$\frac{\partial f}{\partial x}=-\frac{F’_x(x,y,z)}{F’_z(x,y,z)}$,$\frac{\partial f}{\partial y}=-\frac{F’_y(x,y,z)}{F’_z(x,y,z)}$</li>
 <li>隐函数存在定理3<img src="https://img2023.cnblogs.com/blog/3125312/202304/3125312-20230415115102684-1663057538.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-</ul></li>
+</ul>
+</li>
 <li>空间曲线的切线和法平面
 <ul>
-<li>要点: 对曲面<span class="math inline">\(F(x,y,z)=0\)</span>, 设<span class="math inline">\(x,y,z\)</span>可化为参数方程<span class="math inline">\(x=x(t),y=y(t),z=z(t)\)</span>, 则在<span class="math inline">\(P_0(x_0,y_0,z_0)\)</span>处,曲面的法向量 ==<span class="math inline">\(\overrightarrow
-n=(F&#39;_x,F&#39;_y,F&#39;_z)\)</span>==, 切向量为<span class="math inline">\((x&#39;(t),y&#39;(t),z&#39;(t))\)</span>
-,由此可推出曲线在该点的 点法式的切平面,法线</li>
-<li>若曲线由两个方程的方程组决定<span class="math inline">\(\begin{cases}F(x,y,z)=0 \\
-G(x,y,z)=0\end{cases}\)</span>,则取法向量<span class="math inline">\(n_1=(F&#39;_x,F&#39;_x,F&#39;_z),n_2=(G&#39;_x,G&#39;_y,G&#39;_z)\)</span>,切向量为<span class="math inline">\(n_1*n_2\)</span></li>
-</ul></li>
+<li>要点: 对曲面$F(x,y,z)=0$, 设$x,y,z$可化为参数方程$x=x(t),y=y(t),z=z(t)$, 则在$P_0(x_0,y_0,z_0)$处,曲面的法向量 ==$\overrightarrow n=(F’_x,F’_y,F’_z)$==, 切向量为$(x’(t),y’(t),z’(t))$ ,由此可推出曲线在该点的 点法式的切平面,法线</li>
+<li>若曲线由两个方程的方程组决定$\begin{cases}F(x,y,z)=0 \ G(x,y,z)=0\end{cases}$,则取法向量$n_1=(F’_x,F’_x,F’_z),n_2=(G’_x,G’_y,G’_z)$,切向量为$n_1*n_2$</li>
+</ul>
+</li>
 <li>空间曲面的切平面和法线
 <ul>
-<li>若空间曲面由<span class="math inline">\(F(x,y,z)=0\)</span>表示,则同上, 法向量为<span class="math inline">\(\overrightarrow
-n=(F&#39;_x,F&#39;_y,F&#39;_z)\)</span>, 由此求出切平面</li>
-<li>若空间曲面由参数方程<span class="math inline">\(x=x(u,v),y=y(u,v),z=z(u,v)\)</span>表示,对<span class="math inline">\(u,v\)</span>求偏导,则法向量为<span class="math inline">\(\overrightarrow
-n=(x&#39;_u,y&#39;_u,z&#39;_u)\times(x&#39;_v,y&#39;_v,z&#39;_v)\)</span>,
-由此求出切平面</li>
-</ul></li>
+<li>若空间曲面由$F(x,y,z)=0$表示,则同上, 法向量为$\overrightarrow n=(F’_x,F’_y,F’_z)$, 由此求出切平面</li>
+<li>若空间曲面由参数方程$x=x(u,v),y=y(u,v),z=z(u,v)$表示,对$u,v$求偏导,则法向量为$\overrightarrow n=(x’_u,y’_u,z’_u)\times(x’_v,y’_v,z’_v)$, 由此求出切平面</li>
+</ul>
+</li>
 <li>极值和条件极值:
 <ul>
-<li>二元函数的泰勒公式:若<span class="math inline">\(f(x,y)\)</span>在<span class="math inline">\((x_0,y_0)\)</span>处可微,则<span class="math inline">\(f(x,y)\)</span>在<span class="math inline">\((x_0,y_0)\)</span>处的泰勒公式为<span class="math inline">\(f(x,y)=f(x_0,y_0)+f&#39;_x(x_0,y_0)(x-x_0)+f&#39;_y(x_0,y_0)(y-y_0)+\frac{1}{2}f&#39;&#39;_{xx}(\xi,\eta)(x-x_0)^2+\frac{1}{2}f&#39;&#39;_{yy}(\xi,\eta)(y-y_0)^2+\frac{1}{2}f&#39;&#39;_{xy}(\xi,\eta)(x-x_0)(y-y_0),\xi
-\in(x_0,x), \eta \in(y_0,y)\)</span></li>
-<li>极值判别法1: 记<span class="math inline">\(\mu(x,y)=f&#39;_x(x,y)(x-x_0)+f&#39;_y(x,y)(y-y_0)\)</span>,则<span class="math inline">\(\mu(x,y)&gt;0\)</span>时,点<span class="math inline">\((x_0,y_0)\)</span>为极小值点;<span class="math inline">\(\mu(x,y)&lt;0\)</span>时,点<span class="math inline">\((x_0,y_0)\)</span>为极大值点;</li>
-<li>极值判别法2: 当<span class="math inline">\(f&#39;_x(x_0,y_0)=f&#39;_y(x_0,y_0)=0\)</span>时,令<span class="math inline">\(A=f&#39;&#39;_{xx}(x_0,y_0),B=f&#39;&#39;_{xy}(x_0,y_0),C=f&#39;&#39;_{yy}(x_0,y_0)\)</span>;<br>
-  由于<span class="math inline">\(f(x,y)-f(x_0,y_0)=f&#39;_x(x_0,y_0)\Delta
-x+f&#39;_y(x_0,y_0)\Delta
-y+\frac{1}{2}(f&#39;&#39;_{xx}(\xi,\eta)(\Delta
-x)^2+2f&#39;&#39;_{xy}(\xi,\eta)(\Delta x\Delta
-y)+f&#39;&#39;_{yy}(x_0,y_0)(\Delta y)^2)\)</span>,<br>
-  化为一元二次方程形式: <span class="math inline">\(f(x,y)-f(x_0,y_0)\sim
-f&#39;&#39;_{xx}(\xi,\eta)(\frac{\Delta x}{\Delta
-y})^2+2f&#39;&#39;_{xy}(\xi,\eta)(\frac{\Delta x}{\Delta
-y})+f&#39;&#39;_{yy}(x_0,y_0)\)</span>:
+<li>二元函数的泰勒公式:若$f(x,y)$在$(x_0,y_0)$处可微,则$f(x,y)$在$(x_0,y_0)$处的泰勒公式为$f(x,y)=f(x_0,y_0)+f’<em>x(x_0,y_0)(x-x_0)+f’<em>y(x_0,y_0)(y-y_0)+\frac{1}{2}f’'</em>{xx}(\xi,\eta)(x-x_0)^2+\frac{1}{2}f’'</em>{yy}(\xi,\eta)(y-y_0)^2+\frac{1}{2}f’'_{xy}(\xi,\eta)(x-x_0)(y-y_0),\xi \in(x_0,x), \eta \in(y_0,y)$</li>
+<li>极值判别法1: 记$\mu(x,y)=f’_x(x,y)(x-x_0)+f’_y(x,y)(y-y_0)$,则$\mu(x,y)&gt;0$时,点$(x_0,y_0)$为极小值点;$\mu(x,y)&lt;0$时,点$(x_0,y_0)$为极大值点;</li>
+<li>极值判别法2: 当$f’<em>x(x_0,y_0)=f’<em>y(x_0,y_0)=0$时,令$A=f’'</em>{xx}(x_0,y_0),B=f’'</em>{xy}(x_0,y_0),C=f’‘<em>{yy}(x_0,y_0)$;<br>
+  由于$f(x,y)-f(x_0,y_0)=f’<em>x(x_0,y_0)\Delta x+f’<em>y(x_0,y_0)\Delta y+\frac{1}{2}(f’'</em>{xx}(\xi,\eta)(\Delta x)^2+2f’'</em>{xy}(\xi,\eta)(\Delta x\Delta y)+f’'</em>{yy}(x_0,y_0)(\Delta y)^2)$,<br>
+  化为一元二次方程形式: $f(x,y)-f(x_0,y_0)\sim f’‘<em>{xx}(\xi,\eta)(\frac{\Delta x}{\Delta y})^2+2f’'</em>{xy}(\xi,\eta)(\frac{\Delta x}{\Delta y})+f’'_{yy}(x_0,y_0)$:
 <ul>
-<li>则<span class="math inline">\(B^2-AC&lt;0,A&gt;0\)</span>时,点<span class="math inline">\((x_0,y_0)\)</span>为极小值点----方程无解且总值大于0<span class="math inline">\(\rightarrow f(x,y)&lt;f(x_0,y_0)\)</span>总成立
-;</li>
-<li><span class="math inline">\(B^2-AC&lt;0,A&lt;0\)</span>时,点<span class="math inline">\((x_0,y_0)\)</span>为极大值点----方程无解且总值小于0<span class="math inline">\(\rightarrow
-f(x,y)&gt;f(x_0,y_0)\)</span>总成立;</li>
-<li><span class="math inline">\(B^2-AC&gt;0\)</span>时,点<span class="math inline">\((x_0,y_0)\)</span>不为极值点----方程有解<span class="math inline">\(\rightarrow f(x,y)\)</span>大于或小于<span class="math inline">\(f(x_0,y_0)\)</span>;</li>
-</ul></li>
-<li>条件极值: 设函数<span class="math inline">\(f(x,y,z)\)</span>连续可微,函数<span class="math inline">\(\varphi(x,y,z)\)</span>连续可微,且<span class="math inline">\(f(x,y,z)\)</span>满足约束方程<span class="math inline">\(\varphi(x,y,z)=0\)</span>的条件极值在点<span class="math inline">\(P_0(x_0,y_0,z_0)\)</span>取得,令<span class="math inline">\(F(x,y,z,\lambda)=f(x,y,z)=\lambda
-\varphi(x,y,z)\)</span>,则<span class="math inline">\(P_0(x_0,y_0,z_0)\)</span>可由以下方程组求出:<br>
-<span class="math inline">\(\begin{cases}F&#39;_x=f&#39;_x+\lambda\varphi&#39;_x=0\\
-F&#39;_x=f&#39;_y+\lambda\varphi&#39;_y=0 \\
-F&#39;_z=f&#39;_z+\lambda\varphi&#39;_z=0 \\
-F&#39;_\lambda=\varphi(x,y,z)=0\end{cases}\)</span></li>
-</ul></li>
+<li>则$B^2-AC&lt;0,A&gt;0$时,点$(x_0,y_0)$为极小值点----方程无解且总值大于0$\rightarrow f(x,y)&lt;f(x_0,y_0)$总成立 ;</li>
+<li>$B^2-AC&lt;0,A&lt;0$时,点$(x_0,y_0)$为极大值点----方程无解且总值小于0$\rightarrow f(x,y)&gt;f(x_0,y_0)$总成立;</li>
+<li>$B^2-AC&gt;0$时,点$(x_0,y_0)$不为极值点----方程有解$\rightarrow f(x,y)$大于或小于$f(x_0,y_0)$;</li>
+</ul>
+</li>
+<li>条件极值: 设函数$f(x,y,z)$连续可微,函数$\varphi(x,y,z)$连续可微,且$f(x,y,z)$满足约束方程$\varphi(x,y,z)=0$的条件极值在点$P_0(x_0,y_0,z_0)$取得,令$F(x,y,z,\lambda)=f(x,y,z)=\lambda \varphi(x,y,z)$,则$P_0(x_0,y_0,z_0)$可由以下方程组求出:<br>
+$\begin{cases}F’_x=f’_x+\lambda\varphi’_x=0\ F’_x=f’_y+\lambda\varphi’_y=0 \ F’_z=f’_z+\lambda\varphi’<em>z=0 \ F’</em>\lambda=\varphi(x,y,z)=0\end{cases}$</li>
+</ul>
+</li>
 <li>最大值,最小值:<br>
-求驻点,计算出最大,最小值;或根据问题,只有一个驻点,且最大,最小值一定在区域内,判断边界点后,该驻点为最大,
-最小值点.</li>
+求驻点,计算出最大,最小值;或根据问题,只有一个驻点,且最大,最小值一定在区域内,判断边界点后,该驻点为最大, 最小值点.</li>
 <li>方向导数:
 <ul>
-<li>对向量的方向余弦<span class="math inline">\(\overrightarrow
-l=(cos(\alpha),cos(\beta),cos(\gamma))\)</span>和函数<span class="math inline">\(f(x,y,z)\)</span>, <span class="math inline">\(f(x,y,z)\)</span>的方向导数为<span class="math inline">\(\frac{\partial f}{\partial \overrightarrow
-l}(x,y,z)=\frac{\partial f}{\partial x}*cos(\alpha)+\frac{\partial
-f}{\partial y}*cos(\beta)+\frac{\partial f}{\partial
-z}*cos(\gamma)\)</span>,并记<span class="math inline">\(\bigtriangledown
-f(P_0)=(\frac{\partial f}{\partial x},\frac{\partial f}{\partial
-y},\frac{\partial f}{\partial z})\)</span></li>
-<li>求函数沿某方向变化最快,即<span class="math inline">\(|\frac{\partial
-f}{\partial \overrightarrow l}(x,y,z)|\)</span>最大时, 因为<span class="math inline">\(|\frac{\partial f}{\partial \overrightarrow
-l}(x,y,z)|=|\bigtriangledown f(P_0)||\overrightarrow
-n|cos\theta\)</span>,则此时<span class="math inline">\(\theta=0/\pi\)</span>,<span class="math inline">\(\overrightarrow n//\overrightarrow
-{\bigtriangledown f(P_0)}\)</span>,即<span class="math inline">\(\overrightarrow n=\frac{\bigtriangledown
-f(P_0)}{|\bigtriangledown f(P_0)|}\)</span>时增长最快,<span class="math inline">\(\overrightarrow n=-\frac{\bigtriangledown
-f(P_0)}{|\bigtriangledown f(P_0)|}\)</span>减少最快</li>
-</ul></li>
+<li>对向量的方向余弦$\overrightarrow l=(cos(\alpha),cos(\beta),cos(\gamma))$和函数$f(x,y,z)$,  $f(x,y,z)$的方向导数为$\frac{\partial f}{\partial \overrightarrow l}(x,y,z)=\frac{\partial f}{\partial x}*cos(\alpha)+\frac{\partial f}{\partial y}*cos(\beta)+\frac{\partial f}{\partial z}*cos(\gamma)$,并记$\bigtriangledown f(P_0)=(\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial f}{\partial z})$</li>
+<li>求函数沿某方向变化最快,即$|\frac{\partial f}{\partial \overrightarrow l}(x,y,z)|$最大时,  因为$|\frac{\partial f}{\partial \overrightarrow l}(x,y,z)|=|\bigtriangledown f(P_0)||\overrightarrow n|cos\theta$,则此时$\theta=0/\pi$,$\overrightarrow n//\overrightarrow {\bigtriangledown f(P_0)}$,即$\overrightarrow n=\frac{\bigtriangledown f(P_0)}{|\bigtriangledown f(P_0)|}$时增长最快,$\overrightarrow n=-\frac{\bigtriangledown f(P_0)}{|\bigtriangledown f(P_0)|}$减少最快</li>
+</ul>
+</li>
 </ol>
 
                 
@@ -501,7 +471,6 @@ f(P_0)}{|\bigtriangledown f(P_0)|}\)</span>减少最快</li>
 
   
   
-
 
 
 
@@ -696,49 +665,6 @@ f(P_0)}{|\bigtriangledown f(P_0)|}\)</span>减少最快</li>
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        if (!window.MathJax) {
-          window.MathJax = {
-            tex    : {
-              inlineMath: { '[+]': [['$', '$']] }
-            },
-            loader : {
-              load: ['ui/lazy']
-            },
-            options: {
-              renderActions: {
-                insertedScript: [200, () => {
-                  document.querySelectorAll('mjx-container').forEach(node => {
-                    let target = node.parentNode;
-                    if (target.nodeName.toLowerCase() === 'li') {
-                      target.parentNode.classList.add('has-jax');
-                    }
-                  });
-                }, '', false]
-              }
-            }
-          };
-        } else {
-          MathJax.startup.document.state(0);
-          MathJax.texReset();
-          MathJax.typeset();
-          MathJax.typesetPromise();
-        }
-
-        Fluid.events.registerRefreshCallback(function() {
-          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
-            MathJax.startup.document.state(0);
-            MathJax.texReset();
-            MathJax.typeset();
-            MathJax.typesetPromise();
-          }
-        });
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
