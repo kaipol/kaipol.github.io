@@ -18,12 +18,12 @@
   <meta name="author" content="Kaipol">
   <meta name="keywords" content="">
   
-    <meta name="description" content="二分查找： 模板①： 12345678910int left &#x3D; 0, right &#x3D; nums.length - 1;while (left &lt; right) &amp;#123;  int middle &#x3D; left + (right - left) &#x2F; 2;  if (满足XXX) &amp;#123;    right &#x3D; middle;  &amp;#125; else &amp;#123;    left &#x3D;">
+    <meta name="description" content="二分查找：模板①：12345678910int left &#x3D; 0, right &#x3D; nums.length - 1;while (left &lt; right) &amp;#123;  int middle &#x3D; left + (right - left) &#x2F; 2;  if (满足XXX) &amp;#123;    right &#x3D; middle;  &amp;#125; else &amp;#123;    left &#x3D; mi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法与数据结构">
 <meta property="og:url" content="https://kaipol.github.io/2023/01/21/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.html">
 <meta property="og:site_name" content="Kaipol的博客">
-<meta property="og:description" content="二分查找： 模板①： 12345678910int left &#x3D; 0, right &#x3D; nums.length - 1;while (left &lt; right) &amp;#123;  int middle &#x3D; left + (right - left) &#x2F; 2;  if (满足XXX) &amp;#123;    right &#x3D; middle;  &amp;#125; else &amp;#123;    left &#x3D;">
+<meta property="og:description" content="二分查找：模板①：12345678910int left &#x3D; 0, right &#x3D; nums.length - 1;while (left &lt; right) &amp;#123;  int middle &#x3D; left + (right - left) &#x2F; 2;  if (满足XXX) &amp;#123;    right &#x3D; middle;  &amp;#125; else &amp;#123;    left &#x3D; mi">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://kaipol.github.io/img/4.png">
 <meta property="article:published_time" content="2023-01-20T18:24:30.000Z">
@@ -284,11 +284,8 @@
             
               <div class="markdown-body">
                 
-                <h1>二分查找：</h1>
-<h2 id="模板①：">模板①：</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> left = <span class="hljs-number">0</span>, right = nums.length - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (left &lt; right) &#123;<br>  <span class="hljs-type">int</span> middle = left + (right - left) / <span class="hljs-number">2</span>;<br>  <span class="hljs-keyword">if</span> (满足XXX) &#123;<br>    right = middle;<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    left = middle + <span class="hljs-number">1</span>;<br>  &#125;<br>&#125; <br><span class="hljs-comment">//注意是先改变右值</span><br></code></pre></td></tr></table></figure>
-<h2 id="模板②：">模板②：</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> left = <span class="hljs-number">0</span>, right = nums.length - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (left &lt; right) &#123;<br>  <span class="hljs-comment">// +1是为了让相除结果向上取整，这个地方就是两套模板的区别之一</span><br>  <span class="hljs-type">int</span> middle = left + (right - left + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>;<br>  <span class="hljs-keyword">if</span> (满足XXX) &#123;<br>    left = middle;<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    right = middle - <span class="hljs-number">1</span>;<br>  &#125;<br>&#125;  <br><span class="hljs-comment">//注意是先改变左值</span><br></code></pre></td></tr></table></figure>
+                <h1 id="二分查找："><a href="#二分查找：" class="headerlink" title="二分查找："></a>二分查找：</h1><h2 id="模板①："><a href="#模板①：" class="headerlink" title="模板①："></a>模板①：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> left = <span class="hljs-number">0</span>, right = nums.length - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (left &lt; right) &#123;<br>  <span class="hljs-type">int</span> middle = left + (right - left) / <span class="hljs-number">2</span>;<br>  <span class="hljs-keyword">if</span> (满足XXX) &#123;<br>    right = middle;<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    left = middle + <span class="hljs-number">1</span>;<br>  &#125;<br>&#125; <br><span class="hljs-comment">//注意是先改变右值</span><br></code></pre></td></tr></table></figure>
+<h2 id="模板②："><a href="#模板②：" class="headerlink" title="模板②："></a>模板②：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> left = <span class="hljs-number">0</span>, right = nums.length - <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span> (left &lt; right) &#123;<br>  <span class="hljs-comment">// +1是为了让相除结果向上取整，这个地方就是两套模板的区别之一</span><br>  <span class="hljs-type">int</span> middle = left + (right - left + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>;<br>  <span class="hljs-keyword">if</span> (满足XXX) &#123;<br>    left = middle;<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    right = middle - <span class="hljs-number">1</span>;<br>  &#125;<br>&#125;  <br><span class="hljs-comment">//注意是先改变左值</span><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -640,4 +637,5 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+</body>
+</html>
