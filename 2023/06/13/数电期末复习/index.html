@@ -18,16 +18,16 @@
   <meta name="author" content="Kaipol">
   <meta name="keywords" content="">
   
-    <meta name="description" content="冯诺依曼结构  数据的编码  数制的转换 二进制转8,16进制:按3或4位二进制编码转换 十进制转二进制: 数值数据的表示  数值数据表示的三要素  进位计数制 定、浮点表示 如何用二进制编码    即：要确定一个数值数据的值必须先确定这三个要素。  定&#x2F;浮点表示（解决小数点问题）  定点整数、定点小数 浮点数（可用一个定点小数和一个定点整数来表示）   定点数的编码（解决正负号问题）  原码、补">
+    <meta name="description" content="冯诺依曼结构 数据的编码 数制的转换 数值数据的表示 原码,补码等转换 IEEE 754标准: 数据基本宽度:     数字逻辑电路 概要 数字逻辑基础 数字抽象: CMOS晶体管: CMOS逻辑门的实现: 卡诺图化简   组合逻辑电路 概要: 原则: 组合逻辑电路设计: 典型部件: 延迟: 冒险:   时序逻辑电路 概述 锁存器,触发器 关于写入的时序关系: 同步时序逻辑电路设计 典型部件设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数电期末复习">
 <meta property="og:url" content="https://kaipol.github.io/2023/06/13/%E6%95%B0%E7%94%B5%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Kaipol的博客">
-<meta property="og:description" content="冯诺依曼结构  数据的编码  数制的转换 二进制转8,16进制:按3或4位二进制编码转换 十进制转二进制: 数值数据的表示  数值数据表示的三要素  进位计数制 定、浮点表示 如何用二进制编码    即：要确定一个数值数据的值必须先确定这三个要素。  定&#x2F;浮点表示（解决小数点问题）  定点整数、定点小数 浮点数（可用一个定点小数和一个定点整数来表示）   定点数的编码（解决正负号问题）  原码、补">
+<meta property="og:description" content="冯诺依曼结构 数据的编码 数制的转换 数值数据的表示 原码,补码等转换 IEEE 754标准: 数据基本宽度:     数字逻辑电路 概要 数字逻辑基础 数字抽象: CMOS晶体管: CMOS逻辑门的实现: 卡诺图化简   组合逻辑电路 概要: 原则: 组合逻辑电路设计: 典型部件: 延迟: 冒险:   时序逻辑电路 概述 锁存器,触发器 关于写入的时序关系: 同步时序逻辑电路设计 典型部件设计">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://kaipol.github.io/img/10.png">
 <meta property="article:published_time" content="2023-06-13T15:38:18.000Z">
-<meta property="article:modified_time" content="2023-06-17T18:52:19.630Z">
+<meta property="article:modified_time" content="2023-09-24T17:01:37.457Z">
 <meta property="article:author" content="Kaipol">
 <meta property="article:tag" content="数电与计组">
 <meta name="twitter:card" content="summary_large_image">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k 字
+          2.2k 字
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          16 分钟
+          19 分钟
         
       </span>
     
@@ -284,208 +284,203 @@
             
               <div class="markdown-body">
                 
-                <h1>冯诺依曼结构</h1>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615013829457-1286032467.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h1>数据的编码</h1>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615013839820-721165284.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h2 id="数制的转换">数制的转换</h2>
-<p>二进制转8,16进制:按3或4位二进制编码转换<br>
-十进制转二进制:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615013943552-447272632.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h2 id="数值数据的表示">数值数据的表示</h2>
-<ol>
-<li>数值数据表示的三要素
-<ul>
+                <ul>
+<li><a href="#冯诺依曼结构">冯诺依曼结构</a></li>
+<li><a href="#数据的编码">数据的编码</a><ul>
+<li><a href="#数制的转换">数制的转换</a></li>
+<li><a href="#数值数据的表示">数值数据的表示</a><ul>
+<li><a href="#原码补码等转换">原码,补码等转换</a></li>
+<li><a href="#ieee-754标准">IEEE 754标准:</a></li>
+<li><a href="#数据基本宽度">数据基本宽度:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#数字逻辑电路">数字逻辑电路</a><ul>
+<li><a href="#概要">概要</a></li>
+<li><a href="#数字逻辑基础">数字逻辑基础</a><ul>
+<li><a href="#数字抽象">数字抽象:</a></li>
+<li><a href="#cmos晶体管">CMOS晶体管:</a></li>
+<li><a href="#cmos逻辑门的实现">CMOS逻辑门的实现:</a></li>
+<li><a href="#卡诺图化简">卡诺图化简</a></li>
+</ul>
+</li>
+<li><a href="#组合逻辑电路">组合逻辑电路</a><ul>
+<li><a href="#概要-1">概要:</a></li>
+<li><a href="#原则">原则:</a></li>
+<li><a href="#组合逻辑电路设计">组合逻辑电路设计:</a></li>
+<li><a href="#典型部件">典型部件:</a></li>
+<li><a href="#延迟">延迟:</a></li>
+<li><a href="#冒险">冒险:</a></li>
+</ul>
+</li>
+<li><a href="#时序逻辑电路">时序逻辑电路</a><ul>
+<li><a href="#概述">概述</a></li>
+<li><a href="#锁存器触发器">锁存器,触发器</a></li>
+<li><a href="#关于写入的时序关系">关于写入的时序关系:</a></li>
+<li><a href="#同步时序逻辑电路设计">同步时序逻辑电路设计</a></li>
+<li><a href="#典型部件设计">典型部件设计</a></li>
+</ul>
+</li>
+<li><a href="#小结">小结</a></li>
+</ul>
+</li>
+<li><a href="#存储器阵列了解">存储器阵列(了解)</a><ul>
+<li><a href="#romram">ROM,RAM</a></li>
+</ul>
+</li>
+<li><a href="#运算部件设计">运算部件设计</a><ul>
+<li><a href="#基本的运算部件">基本的运算部件</a></li>
+<li><a href="#定点数运算加减法乘法">定点数运算(加减法,乘法)</a></li>
+<li><a href="#小结-1">小结</a></li>
+</ul>
+</li>
+<li><a href="#指令系统">指令系统</a><ul>
+<li><a href="#概述-1">概述</a></li>
+<li><a href="#指令设计">指令设计</a></li>
+<li><a href="#risc-v指令">RISC-V指令</a></li>
+</ul>
+</li>
+<li><a href="#cpu">CPU</a><ul>
+<li><a href="#概述-2">概述</a></li>
+<li><a href="#cpu设计">CPU设计</a></li>
+<li><a href="#流水线设计">流水线设计</a></li>
+<li><a href="#流水线冒险">流水线冒险</a><ul>
+<li><a href="#概要-2">概要</a></li>
+<li><a href="#结构冒险">结构冒险</a></li>
+<li><a href="#数据冒险">数据冒险</a></li>
+<li><a href="#控制冒险">控制冒险</a></li>
+</ul>
+</li>
+<li><a href="#比较">比较</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="冯诺依曼结构"><a href="#冯诺依曼结构" class="headerlink" title="冯诺依曼结构"></a>冯诺依曼结构</h1><p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615013829457-1286032467.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h1 id="数据的编码"><a href="#数据的编码" class="headerlink" title="数据的编码"></a>数据的编码</h1><p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615013839820-721165284.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="数制的转换"><a href="#数制的转换" class="headerlink" title="数制的转换"></a>数制的转换</h2><p>二进制转8,16进制:按3或4位二进制编码转换<br>十进制转二进制:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615013943552-447272632.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="数值数据的表示"><a href="#数值数据的表示" class="headerlink" title="数值数据的表示"></a>数值数据的表示</h2><ol>
+<li>数值数据表示的三要素<ul>
 <li>进位计数制</li>
 <li>定、浮点表示</li>
 <li>如何用二进制编码</li>
 </ul>
 </li>
 </ol>
-<p>即：要确定一个数值数据的值必须先确定这三个要素。</p>
+<p>即：要确定一个数值数据的值必须先确定这三个要素。  </p>
 <ul>
-<li>定/浮点表示（解决小数点问题）
-<ul>
+<li>定/浮点表示（解决小数点问题）<ul>
 <li>定点整数、定点小数</li>
 <li>浮点数（可用一个定点小数和一个定点整数来表示）</li>
 </ul>
 </li>
-<li>定点数的编码（解决正负号问题）
-<ul>
+<li>定点数的编码（解决正负号问题）<ul>
 <li>原码、补码、反码、移码 (反码很少用)</li>
 </ul>
 </li>
 </ul>
-<h3 id="原码-补码等转换">原码,补码等转换</h3>
-<p>例子:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014011205-1954288490.png" srcset="/img/loading.gif" lazyload alt="img">该例中补码范围为7~ -8<br>
-<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014027018-1172282605.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014029506-387719637.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="IEEE-754标准">IEEE 754标准:</h3>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014035855-588428938.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-例子:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014043723-1834347315.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014047780-592417996.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-特殊值表示方法:<br>
-<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014107110-651415914.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014110678-1752685512.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014112684-2018827045.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014114738-920858372.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="数据基本宽度">数据基本宽度:</h3>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014121001-1584897258.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014123031-2055759459.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-5. 数据储存顺序:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014133282-530607408.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h1>数字逻辑电路</h1>
-<h2 id="概要">概要</h2>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014141589-877062665.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014143661-1720084070.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014147879-875583493.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014151433-548222357.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014154184-1918996099.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014159403-105480773.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014202581-2133901621.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h2 id="数字逻辑基础">数字逻辑基础</h2>
-<h3 id="数字抽象">数字抽象:</h3>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014211440-1879372829.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-最大,最小项:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617154420879-246892569.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="CMOS晶体管">CMOS晶体管:</h3>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014218473-1701541417.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="CMOS逻辑门的实现">CMOS逻辑门的实现:</h3>
+<h3 id="原码-补码等转换"><a href="#原码-补码等转换" class="headerlink" title="原码,补码等转换"></a>原码,补码等转换</h3><p>例子:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014011205-1954288490.png" srcset="/img/loading.gif" lazyload alt="img">该例中补码范围为7~ -8<br><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014027018-1172282605.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014029506-387719637.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="IEEE-754标准"><a href="#IEEE-754标准" class="headerlink" title="IEEE 754标准:"></a>IEEE 754标准:</h3><p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014035855-588428938.png" srcset="/img/loading.gif" lazyload alt="img"><br>例子:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014043723-1834347315.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014047780-592417996.png" srcset="/img/loading.gif" lazyload alt="img"><br>特殊值表示方法:<br><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014107110-651415914.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014110678-1752685512.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014112684-2018827045.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014114738-920858372.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="数据基本宽度"><a href="#数据基本宽度" class="headerlink" title="数据基本宽度:"></a>数据基本宽度:</h3><p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014121001-1584897258.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014123031-2055759459.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<ol>
+<li>数据储存顺序:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014133282-530607408.png" srcset="/img/loading.gif" lazyload alt="img"><h1 id="数字逻辑电路"><a href="#数字逻辑电路" class="headerlink" title="数字逻辑电路"></a>数字逻辑电路</h1><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014141589-877062665.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014143661-1720084070.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014147879-875583493.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014151433-548222357.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014154184-1918996099.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014159403-105480773.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014202581-2133901621.png" srcset="/img/loading.gif" lazyload alt="img"><h2 id="数字逻辑基础"><a href="#数字逻辑基础" class="headerlink" title="数字逻辑基础"></a>数字逻辑基础</h2><h3 id="数字抽象"><a href="#数字抽象" class="headerlink" title="数字抽象:"></a>数字抽象:</h3><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014211440-1879372829.png" srcset="/img/loading.gif" lazyload alt="img"><br>最大,最小项:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617154420879-246892569.png" srcset="/img/loading.gif" lazyload alt="img"><h3 id="CMOS晶体管"><a href="#CMOS晶体管" class="headerlink" title="CMOS晶体管:"></a>CMOS晶体管:</h3><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014218473-1701541417.png" srcset="/img/loading.gif" lazyload alt="img"><h3 id="CMOS逻辑门的实现"><a href="#CMOS逻辑门的实现" class="headerlink" title="CMOS逻辑门的实现:"></a>CMOS逻辑门的实现:</h3></li>
+</ol>
 <ul>
 <li>非门:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014225342-1684552326.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014228805-372165172.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>与非门:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014311629-1656937126.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014315595-801550491.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>或非门:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014323596-1887228854.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>与门:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014345858-559510720.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>缓冲器:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014353555-1707437596.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-<li>k输入门:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014401103-720784620.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>k输入门:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014401103-720784620.png" srcset="/img/loading.gif" lazyload alt="img"><h3 id="卡诺图化简"><a href="#卡诺图化简" class="headerlink" title="卡诺图化简"></a>卡诺图化简</h3>原理:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014410732-1177596238.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014413535-1829508656.png" srcset="/img/loading.gif" lazyload alt="img"><br>例子:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014420538-1770220417.png" srcset="/img/loading.gif" lazyload alt="img"><h2 id="组合逻辑电路"><a href="#组合逻辑电路" class="headerlink" title="组合逻辑电路"></a>组合逻辑电路</h2><h3 id="概要-1"><a href="#概要-1" class="headerlink" title="概要:"></a>概要:</h3><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615111421929-38883255.png" srcset="/img/loading.gif" lazyload alt="img"><h3 id="原则"><a href="#原则" class="headerlink" title="原则:"></a>原则:</h3><ul>
+<li>组合逻辑电路构成规则<ul>
+<li>每个元件本身是组合逻辑电路</li>
+<li>输出结点不能互连</li>
+<li>输出结点不能反馈到输入端</li>
 </ul>
-<h3 id="卡诺图化简">卡诺图化简</h3>
-<p>原理:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014410732-1177596238.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014413535-1829508656.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-例子:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014420538-1770220417.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h2 id="组合逻辑电路">组合逻辑电路</h2>
-<h3 id="概要-2">概要:</h3>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615111421929-38883255.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="原则">原则:</h3>
-<pre><code class="hljs">- 组合逻辑电路构成规则
-    - 每个元件本身是组合逻辑电路
-    - 输出结点不能互连
-    - 输出结点不能反馈到输入端
-</code></pre>
+</li>
+</ul>
+</li>
+</ul>
 <p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615113316076-675689486.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="组合逻辑电路设计">组合逻辑电路设计:</h3>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615113647300-280821413.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615113817859-72859607.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615113848789-1310083044.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615113927555-2059449505.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="典型部件">典型部件:</h3>
-<ul>
-<li>译码器:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615114623388-454552033.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-实现:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615114643047-2001093471.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-例子:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615114948386-1029309516.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615115008027-1902835266.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-<li>编码器:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615115026037-753238944.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-实现:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615115259158-865173774.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615115421296-35896230.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+<h3 id="组合逻辑电路设计"><a href="#组合逻辑电路设计" class="headerlink" title="组合逻辑电路设计:"></a>组合逻辑电路设计:</h3><p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615113647300-280821413.png" srcset="/img/loading.gif" lazyload alt="img"><br><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615113817859-72859607.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615113848789-1310083044.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615113927555-2059449505.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="典型部件"><a href="#典型部件" class="headerlink" title="典型部件:"></a>典型部件:</h3><ul>
+<li>译码器:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615114623388-454552033.png" srcset="/img/loading.gif" lazyload alt="img"><br>  实现:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615114643047-2001093471.png" srcset="/img/loading.gif" lazyload alt="img"><br>  例子:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615114948386-1029309516.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615115008027-1902835266.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>编码器:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615115026037-753238944.png" srcset="/img/loading.gif" lazyload alt="img"><br>  实现:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615115259158-865173774.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615115421296-35896230.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>多路选择器:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615115657254-1064106050.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615115730308-118332305.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>多路分配器:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615115841142-274093000.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>半加器:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615120105602-73430751.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-<li>全加器:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615120721566-86599296.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>全加器:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615120721566-86599296.png" srcset="/img/loading.gif" lazyload alt="img"><h3 id="延迟"><a href="#延迟" class="headerlink" title="延迟:"></a>延迟:</h3><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615120911862-1625046908.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615120951994-2128772245.png" srcset="/img/loading.gif" lazyload alt="img"><h3 id="冒险"><a href="#冒险" class="headerlink" title="冒险:"></a>冒险:</h3>不同路径延迟作用在同一输出端而引起<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615121054648-1503790337.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 </ul>
-<h3 id="延迟">延迟:</h3>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615120911862-1625046908.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615120951994-2128772245.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="冒险">冒险:</h3>
-<p>不同路径延迟作用在同一输出端而引起<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615121054648-1503790337.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h2 id="时序逻辑电路">时序逻辑电路</h2>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615140803977-1142553144.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="概述">概述</h3>
-<ol>
-<li>有限状态机:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615141014332-1804402180.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615141044170-1371196590.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-实现:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615162045287-1019254325.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-<li>基本结构:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615162528277-1991129778.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615162729105-1295505024.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-</ol>
-<h3 id="锁存器-触发器">锁存器,触发器</h3>
-<ol>
-<li>双稳态元件:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615163549733-1286660949.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615163655902-2036839185.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-<strong>锁存器</strong>:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615163831192-465289383.png" srcset="/img/loading.gif" lazyload alt="img"><strong>触发器</strong>:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615163903255-1116379847.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-<li>SR锁存器:
-<ul>
+<h2 id="时序逻辑电路"><a href="#时序逻辑电路" class="headerlink" title="时序逻辑电路"></a>时序逻辑电路</h2><p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615140803977-1142553144.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ol>
+<li>有限状态机:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615141014332-1804402180.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615141044170-1371196590.png" srcset="/img/loading.gif" lazyload alt="img"><br>实现:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615162045287-1019254325.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>基本结构:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615162528277-1991129778.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615162729105-1295505024.png" srcset="/img/loading.gif" lazyload alt="img"><h3 id="锁存器-触发器"><a href="#锁存器-触发器" class="headerlink" title="锁存器,触发器"></a>锁存器,触发器</h3></li>
+<li>双稳态元件:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615163549733-1286660949.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615163655902-2036839185.png" srcset="/img/loading.gif" lazyload alt="img"><br><strong>锁存器</strong>:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615163831192-465289383.png" srcset="/img/loading.gif" lazyload alt="img"><strong>触发器</strong>:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615163903255-1116379847.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>SR锁存器:<ul>
 <li>构造及状态转移:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615164034888-800583773.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615164137604-1444652696.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>功能:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615164212020-667306024.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 </ul>
 </li>
-<li>D锁存器:
-<ul>
+<li>D锁存器:<ul>
 <li>构造:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615164448611-2027028338.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615164505432-867609112.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 </ul>
 </li>
-<li>D触发器:
-<ul>
+<li>D触发器:<ul>
 <li>构造:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615164630498-901957044.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615170258548-241737215.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>变种:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615170726230-1573410134.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 </ul>
 </li>
 <li>T触发器:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615170840361-284796448.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-<li>总结:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615170906090-185067237.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-</ol>
-<h3 id="关于写入的时序关系">关于写入的时序关系:</h3>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615170406815-1750143000.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="同步时序逻辑电路设计">同步时序逻辑电路设计</h3>
-<ol>
+<li>总结:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615170906090-185067237.png" srcset="/img/loading.gif" lazyload alt="img"><h3 id="关于写入的时序关系"><a href="#关于写入的时序关系" class="headerlink" title="关于写入的时序关系:"></a>关于写入的时序关系:</h3><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615170406815-1750143000.png" srcset="/img/loading.gif" lazyload alt="img"><h3 id="同步时序逻辑电路设计"><a href="#同步时序逻辑电路设计" class="headerlink" title="同步时序逻辑电路设计"></a>同步时序逻辑电路设计</h3></li>
 <li>概要:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615171000521-1042404083.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-<li>实例:
-<ul>
+<li>实例:<ul>
 <li>需求分析:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615171156803-659443706.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>状态图,状态表设计:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615171251343-1325001886.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615171351282-1446047309.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615171418884-440648236.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>状态化简:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615171520539-1827641358.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>状态编码:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615171558494-1566662640.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>电路设计:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615171945965-1704923181.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615172059360-1300953226.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615172142819-1127548503.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>电路分析:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615172306250-831357379.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615172343779-1164746009.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-<li>定时分析:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615172403253-309066811.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615172841223-1786670929.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615172902822-1545949265.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-时间容限:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615172929943-1098079292.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615173030583-1616797346.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>定时分析:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615172403253-309066811.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615172841223-1786670929.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615172902822-1545949265.png" srcset="/img/loading.gif" lazyload alt="img"><br>时间容限:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615172929943-1098079292.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615173030583-1616797346.png" srcset="/img/loading.gif" lazyload alt="img"><h3 id="典型部件设计"><a href="#典型部件设计" class="headerlink" title="典型部件设计"></a>典型部件设计</h3></li>
 </ul>
 </li>
-</ol>
-<h3 id="典型部件设计">典型部件设计</h3>
-<ol>
-<li>计数器:
-<ul>
-<li>异步<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616170447269-80816345.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616170604924-1790784680.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>计数器:<ul>
+<li>异步<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616170447269-80816345.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616170604924-1790784680.png" srcset="/img/loading.gif" lazyload alt="img"><ul>
 <li>同步:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616171000121-1434773515.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616171136882-322969824.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+</ul>
+</li>
 </ul>
 </li>
 <li>寄存器:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616171619795-3078153.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616171651466-207488904.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>寄存器堆:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616171713416-446412266.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616171953653-904858171.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-<li>移位寄存器:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616172313405-1848305719.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>移位寄存器:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616172313405-1848305719.png" srcset="/img/loading.gif" lazyload alt="img"><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616172403510-723571484.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 </ol>
-<h2 id="小结">小结</h2>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616172403510-723571484.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h1>存储器阵列(了解)</h1>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616172757206-2070362942.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h2 id="ROM-RAM">ROM,RAM</h2>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616172923931-85886264.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616172905821-615549170.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h1 id="存储器阵列-了解"><a href="#存储器阵列-了解" class="headerlink" title="存储器阵列(了解)"></a>存储器阵列(了解)</h1><p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616172757206-2070362942.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="ROM-RAM"><a href="#ROM-RAM" class="headerlink" title="ROM,RAM"></a>ROM,RAM</h2><p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616172923931-85886264.png" srcset="/img/loading.gif" lazyload alt="img"><br><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616172905821-615549170.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <ul>
 <li>ROM:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616173522844-771321970.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>静态RAM<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616173540492-208114817.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616173601839-2006319454.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>动态RAM:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616173629685-208691975.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 </ul>
-<h1>运算部件设计</h1>
-<h2 id="基本的运算部件">基本的运算部件</h2>
-<ol>
-<li>概述<br>
-<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616174913414-516038080.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616212554261-936378198.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-<li>加法器:
-<ul>
+<h1 id="运算部件设计"><a href="#运算部件设计" class="headerlink" title="运算部件设计"></a>运算部件设计</h1><h2 id="基本的运算部件"><a href="#基本的运算部件" class="headerlink" title="基本的运算部件"></a>基本的运算部件</h2><ol>
+<li>概述<br><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616174913414-516038080.png" srcset="/img/loading.gif" lazyload alt="img"><br><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616212554261-936378198.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>加法器:<ul>
 <li>串行进位加法器:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616175035504-633011718.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>并行进位加法器(CLA):<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616210601196-14641279.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616210922881-1332842223.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>n位带标志加法器:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616211759296-1205979895.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-<li>ALU:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616211958742-1264912173.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>ALU:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616211958742-1264912173.png" srcset="/img/loading.gif" lazyload alt="img"><h2 id="定点数运算-加减法-乘法"><a href="#定点数运算-加减法-乘法" class="headerlink" title="定点数运算(加减法,乘法)"></a>定点数运算(加减法,乘法)</h2></li>
 </ul>
 </li>
-</ol>
-<h2 id="定点数运算-加减法-乘法">定点数运算(加减法,乘法)</h2>
-<ol>
-<li>
-<p>概要:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616212614222-224700158.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616212633836-1942982383.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-</li>
-<li>
-<p>加减法:</p>
-<ul>
+<li>概要:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616212614222-224700158.png" srcset="/img/loading.gif" lazyload alt="img"><br><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616212633836-1942982383.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>加减法:<ul>
 <li>引入:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616213842590-1422107177.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>实现:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616213936412-48182645.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>符号位使用:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616214238005-785234235.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616214325613-153839654.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>例子(溢出判断):<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616214724724-610308253.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616214908139-1921332475.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 </ul>
 </li>
-<li>
-<p>乘法:</p>
-<ul>
+<li>乘法:<ul>
 <li>概要:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616215749040-1733200425.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-<li>无符号数乘法:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616215042405-1845886866.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616215103991-1123599337.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616215323674-783602269.png" srcset="/img/loading.gif" lazyload alt="img">
-<ul>
+<li>无符号数乘法:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616215042405-1845886866.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616215103991-1123599337.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616215323674-783602269.png" srcset="/img/loading.gif" lazyload alt="img"><ul>
 <li>实现:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616215427221-533641798.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 </ul>
 </li>
@@ -493,97 +488,62 @@
 <li>补码(带符号数)乘法:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616220205547-2011425939.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616220254030-714929402.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 </ul>
 </li>
-<li>
-<p>小结:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616220539858-872790898.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<li><p>小结:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616220539858-872790898.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 </li>
-<li>
-<p>乘法溢出判断:<br>
-<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014425627-1136493265.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<li><p>乘法溢出判断:<br><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014425627-1136493265.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<blockquote>
+<p>eg:<br>在字长为32位的计算机上，某C函数原型声明为：</p>
+<pre><code class="hljs">         `int imul_overflow(int x, int y);`
+</code></pre><p>该函数用于对两个int型变量x和y的乘积（也是int类型）判断是否溢出，若溢出则返回非0，否则返回0。请完成下列任务或回答下列问题。<br>（1）两个n位无符号数（带符号整数）相乘的溢出判断规则各是什么？</p>
+<ul>
+<li>无符号整数相乘： 若乘积的高n位为非0，则溢出。 </li>
+<li>带符号整数相乘： 若乘积高n位的每一位都相同，且都等于乘积低n位的符号，则不溢出，否则溢出。<br>（2）已知入口参数x、y分别在寄存器a0、a1中，返回值在a0中，写出实现 <code>imul_overflow</code>函数功能的RISC-V汇编指令序列，并给出注解。<br>答案:<br>实现该功能的汇编指令序列不唯一。<br>某实现方案下的汇编指令序列如下： <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">&gt;<span class="hljs-keyword">mul </span> 	<span class="hljs-built_in">t0</span>, <span class="hljs-built_in">a0</span>, <span class="hljs-built_in">a1</span>	       <span class="hljs-comment"># x*y的低32位在t0中</span><br>&gt;<span class="hljs-keyword">mulh </span> 	<span class="hljs-built_in">a0</span>, <span class="hljs-built_in">a0</span>, <span class="hljs-built_in">a1</span>	       <span class="hljs-comment"># x*y的高32位在a0中</span><br>&gt;<span class="hljs-keyword">srai </span>  	<span class="hljs-built_in">t0</span>, <span class="hljs-built_in">t0</span>, <span class="hljs-number">31</span>	       <span class="hljs-comment"># 乘积的低32位算术右移31位</span><br>&gt;<span class="hljs-keyword">xor </span> 	<span class="hljs-built_in">a0</span>, <span class="hljs-built_in">a0</span>, <span class="hljs-built_in">t0</span>	       <span class="hljs-comment"># 按位异或，若结果为0，表示不溢出</span><br></code></pre></td></tr></table></figure>
+（3）使用64位整型（<code>long long</code>）变量来编写<code>imul_overflow</code>函数的C代码 或描述实现思想。<br>答案:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014432974-461643785.png" srcset="/img/loading.gif" lazyload alt="img"><h2 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h2><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616221543729-2133980917.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616221554185-1534318529.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+</ul>
+</blockquote>
 </li>
 </ol>
-<blockquote>
-<p>eg:<br>
-在字长为32位的计算机上，某C函数原型声明为：<br>
-<code>int imul_overflow(int x, int y);</code><br>
-该函数用于对两个int型变量x和y的乘积（也是int类型）判断是否溢出，若溢出则返回非0，否则返回0。请完成下列任务或回答下列问题。<br>
-（1）两个n位无符号数（带符号整数）相乘的溢出判断规则各是什么？<br>
-- 无符号整数相乘：==若乘积的高n位为非0，则溢出。==<br>
-- 带符号整数相乘：==若乘积高n位的每一位都相同，且都等于乘积低n位的符号，则不溢出，否则溢出。==<br>
-（2）已知入口参数x、y分别在寄存器a0、a1中，返回值在a0中，写出实现 <code>imul_overflow</code>函数功能的RISC-V汇编指令序列，并给出注解。<br>
-答案:<br>
-实现该功能的汇编指令序列不唯一。<br>
-某实现方案下的汇编指令序列如下：</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">&gt;<span class="hljs-keyword">mul </span> 	<span class="hljs-built_in">t0</span>, <span class="hljs-built_in">a0</span>, <span class="hljs-built_in">a1</span>	       <span class="hljs-comment"># x*y的低32位在t0中</span><br>&gt;<span class="hljs-keyword">mulh </span> 	<span class="hljs-built_in">a0</span>, <span class="hljs-built_in">a0</span>, <span class="hljs-built_in">a1</span>	       <span class="hljs-comment"># x*y的高32位在a0中</span><br>&gt;<span class="hljs-keyword">srai </span>  	<span class="hljs-built_in">t0</span>, <span class="hljs-built_in">t0</span>, <span class="hljs-number">31</span>	       <span class="hljs-comment"># 乘积的低32位算术右移31位</span><br>&gt;<span class="hljs-keyword">xor </span> 	<span class="hljs-built_in">a0</span>, <span class="hljs-built_in">a0</span>, <span class="hljs-built_in">t0</span>	       <span class="hljs-comment"># 按位异或，若结果为0，表示不溢出</span><br></code></pre></td></tr></table></figure>
-<p>（3）使用64位整型（<code>long long</code>）变量来编写<code>imul_overflow</code>函数的C代码 或描述实现思想。<br>
-答案:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014432974-461643785.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-</blockquote>
-<h2 id="小结-2">小结</h2>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616221543729-2133980917.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616221554185-1534318529.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h1>指令系统</h1>
-<h2 id="概述-2">概述</h2>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616225515734-1243583867.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616225613058-1778838519.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616225628947-2114802024.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616225642762-62666239.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616225655443-1256057721.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h2 id="指令设计">指令设计</h2>
-<ol>
+<h1 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h1><h2 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h2><p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616225515734-1243583867.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616225613058-1778838519.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616225628947-2114802024.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616225642762-62666239.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616225655443-1256057721.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="指令设计"><a href="#指令设计" class="headerlink" title="指令设计"></a>指令设计</h2><ol>
 <li>需求:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616225203313-1369980965.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616225303057-1665565339.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616225738184-123729406.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>指令字地址码:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616225845939-2039625049.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>RISC-V数据类型:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616230257641-719930468.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-<li>寻址方式:<br>
-有效地址仅指存储器的地址<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616230610942-1737381163.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617160703443-750374208.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617160710236-139129348.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616230654402-1757044588.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616231304342-495155557.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616231353455-1655508064.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-</ol>
+<li><p>寻址方式:<br>有效地址仅指存储器的地址<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616230610942-1737381163.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617160703443-750374208.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617160710236-139129348.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616230654402-1757044588.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616231304342-495155557.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616231353455-1655508064.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <blockquote>
-<p>操作码编码例子:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616231928093-823704019.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616231942142-67939472.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-先确定有多少二地址指令(操作码位数最少),减去已知,余下条数x<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>6</mn></msup></mrow><annotation encoding="application/x-tex">2^6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span>(表示除二地址指令外余下操作码可生成多少一地址指令,因为不可与二地址操作码重复,只能取余下位数),减去已知,再x<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>6</mn></msup></mrow><annotation encoding="application/x-tex">2^6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span>,表示最多可生成多少零地址指令</p>
+<p>操作码编码例子:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616231928093-823704019.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616231942142-67939472.png" srcset="/img/loading.gif" lazyload alt="img"><br>先确定有多少二地址指令(操作码位数最少),减去已知,余下条数x$2^6$(表示除二地址指令外余下操作码可生成多少一地址指令,因为不可与二地址操作码重复,只能取余下位数),减去已知,再x$2^6$,表示最多可生成多少零地址指令</p>
 </blockquote>
-<ol start="5">
-<li>指令设计风格
+</li>
+<li><p>指令设计风格</p>
 <ul>
 <li>复杂的CISC:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616232613908-1436169275.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616232738051-2027211650.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>精简的RISC:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616232857013-1676107012.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 </ul>
 </li>
 <li>异常和中断:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616233455087-629750308.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230616233511224-68261638.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-<li>寄存器分配<br>
-<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014440459-856412722.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>寄存器分配<br><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014440459-856412722.png" srcset="/img/loading.gif" lazyload alt="img"><h2 id="RISC-V指令"><a href="#RISC-V指令" class="headerlink" title="RISC-V指令"></a>RISC-V指令</h2><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014438713-807895000.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617160821957-1029354348.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 </ol>
-<h2 id="RISC-V指令">RISC-V指令</h2>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014438713-807895000.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617160821957-1029354348.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <ul>
-<li>运算型:
-<ul>
+<li>运算型:<ul>
 <li>U型:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617160911661-1051023052.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-<li>I型:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617181421400-1227415522.png" srcset="/img/loading.gif" lazyload alt="img">(slt,sltu:set less than,即比较大小,小于置一)(移位指令:s; l(left):左移, r(right):右移; l(logical):即逻辑 ,a(algebraic):即算术)</li>
-</ul>
-<blockquote>
-<p>注意:<br>
-对数的装载:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617181956745-136571640.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<li>I型:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617181421400-1227415522.png" srcset="/img/loading.gif" lazyload alt="img">(slt,sltu:set less than,即比较大小,小于置一)(移位指令:s; l(left):左移, r(right):右移; l(logical):即逻辑 ,a(algebraic):即算术)<blockquote>
+<p>注意:<br>对数的装载:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617181956745-136571640.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 </blockquote>
-<ul>
-<li>R型:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617182057738-936386676.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617182235506-1570647796.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-</ul>
 </li>
-</ul>
-<blockquote>
+<li>R型:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617182057738-936386676.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617182235506-1570647796.png" srcset="/img/loading.gif" lazyload alt="img"><blockquote>
 <p>例子:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617182323257-256385082.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 </blockquote>
-<ul>
+</li>
+</ul>
+</li>
 <li>控制转移类指令(J,I-jarl,B型):<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617182503098-1077805181.png" srcset="/img/loading.gif" lazyload alt="img"> <img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617182731036-2032781615.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>存储器访问类指令(I,S型):<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617182833156-1615790528.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>其他指令:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617183213938-817010820.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 </ul>
-<h1>CPU</h1>
-<h2 id="概述-3">概述</h2>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617191902334-1645223868.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617191935091-1120606849.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617192119207-1408783348.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617193518774-40868360.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617193830223-1206056129.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617193901159-1118012343.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617193918320-1141317272.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h1 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h1><h2 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h2><p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617191902334-1645223868.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617191935091-1120606849.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617192119207-1408783348.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617193518774-40868360.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617193830223-1206056129.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617193901159-1118012343.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617193918320-1141317272.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <ol>
 <li>吞吐率 = 单位时间内运行的作业（指令）数（有或无负载/干扰）</li>
-<li>CPU执行时间:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014445262-584809356.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-CPI计算公式:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014449524-1155762076.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-</ol>
-<h2 id="CPU设计">CPU设计</h2>
-<ol>
-<li>拓展器:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617191136692-1315284542.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-</ol>
-<h2 id="流水线设计">流水线设计</h2>
-<ol>
+<li>CPU执行时间:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014445262-584809356.png" srcset="/img/loading.gif" lazyload alt="img"><br>CPI计算公式:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230615014449524-1155762076.png" srcset="/img/loading.gif" lazyload alt="img"><h2 id="CPU设计"><a href="#CPU设计" class="headerlink" title="CPU设计"></a>CPU设计</h2></li>
+<li>拓展器:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617191136692-1315284542.png" srcset="/img/loading.gif" lazyload alt="img"><h2 id="流水线设计"><a href="#流水线设计" class="headerlink" title="流水线设计"></a>流水线设计</h2></li>
 <li>分析引入:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617231759612-1489066188.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230617231926780-693031233.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>各类指令执行过程:</li>
 </ol>
@@ -595,42 +555,35 @@ CPI计算公式:<img src="https://img2023.cnblogs.com/blog/3125312/202306/312531
 <li>B型:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618000718014-1357304928.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>J型:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618000933696-1674933047.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 </ul>
-<ol start="3">
-<li>数据通路:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618003723821-31434128.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-</ol>
-<blockquote>
+<ol>
+<li>数据通路:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618003723821-31434128.png" srcset="/img/loading.gif" lazyload alt="img"><blockquote>
 <p>例子:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618005109813-1913474353.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618010526168-1909773333.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618010609220-1213931492.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618011309032-265369294.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618012333296-1682513365.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 </blockquote>
-<ol start="4">
+</li>
 <li>控制信号:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618012515521-923018032.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618012549415-1044961050.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618012627266-1422848107.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-<li>小结:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618012751765-2010241083.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>小结:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618012751765-2010241083.png" srcset="/img/loading.gif" lazyload alt="img"><h2 id="流水线冒险"><a href="#流水线冒险" class="headerlink" title="流水线冒险"></a>流水线冒险</h2><h3 id="概要-2"><a href="#概要-2" class="headerlink" title="概要"></a>概要</h3><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618014229606-958339050.png" srcset="/img/loading.gif" lazyload alt="img"><h3 id="结构冒险"><a href="#结构冒险" class="headerlink" title="结构冒险"></a>结构冒险</h3><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618014301416-876530245.png" srcset="/img/loading.gif" lazyload alt="img"><h3 id="数据冒险"><a href="#数据冒险" class="headerlink" title="数据冒险"></a>数据冒险</h3>引入:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618014352683-185370681.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618014410798-593910770.png" srcset="/img/loading.gif" lazyload alt="img"><br>解决方法:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618014440139-218600862.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 </ol>
-<h2 id="流水线冒险">流水线冒险</h2>
-<h3 id="概要-3">概要</h3>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618014229606-958339050.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="结构冒险">结构冒险</h3>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618014301416-876530245.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h3 id="数据冒险">数据冒险</h3>
-<p>引入:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618014352683-185370681.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618014410798-593910770.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-解决方法:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618014440139-218600862.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <ul>
 <li>方案一:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618020454958-2012001345.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>方案二:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618020514210-751911111.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>方案三:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618020532578-1358942220.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-<li>方案四:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618020603800-506609591.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618020642993-951557124.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618020701837-1122682609.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-</ul>
-<blockquote>
+<li>方案四:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618020603800-506609591.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618020642993-951557124.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618020701837-1122682609.png" srcset="/img/loading.gif" lazyload alt="img"><blockquote>
 <p>特例:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618020729422-380750161.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618020746464-1738754659.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618020837454-450652220.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618020941935-1966452937.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 </blockquote>
-<ul>
-<li>方案五:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618020953662-512889719.png" srcset="/img/loading.gif" lazyload alt="img"></li>
-</ul>
-<h3 id="控制冒险">控制冒险</h3>
-<p><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618023016088-509472141.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618024021854-119450744.png" srcset="/img/loading.gif" lazyload alt="img"><br>
-解决方法:</p>
-<ul>
+</li>
+<li>方案五:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618020953662-512889719.png" srcset="/img/loading.gif" lazyload alt="img"><h3 id="控制冒险"><a href="#控制冒险" class="headerlink" title="控制冒险"></a>控制冒险</h3><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618023016088-509472141.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618024021854-119450744.png" srcset="/img/loading.gif" lazyload alt="img"><br>解决方法:</li>
 <li>方案一:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618024249085-64419415.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 <li>方案二:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230618024313274-1493004563.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>方案三:<ul>
+<li>静态分支预测:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230619170604259-802213053.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230619210943733-1514384522.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>动态分支预测:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230619211213264-1925743428.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230619211717714-1420056995.png" srcset="/img/loading.gif" lazyload alt="img"><ul>
+<li>一位预测位:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230619211929789-1245567111.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>二位预测位:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230619212046575-1572849652.png" srcset="/img/loading.gif" lazyload alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>方案四:<img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230619212106761-509651391.png" srcset="/img/loading.gif" lazyload alt="img"><h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230619212142442-1841851462.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230619212153328-995677144.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img2023.cnblogs.com/blog/3125312/202306/3125312-20230619212201691-1933683762.png" srcset="/img/loading.gif" lazyload alt="img"></li>
 </ul>
 
                 
